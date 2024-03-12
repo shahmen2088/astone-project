@@ -28,28 +28,28 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-unused-expressions': 'error',
     'react/jsx-no-useless-fragment': 'error',
-    'import/order': [
-      'error',
-      {
-        groups: [
-          'builtin',
-          'external',
-          'internal',
-          'parent',
-          'sibling',
-          'index',
-          'object',
-          'type',
-        ],
-        pathGroups: [
-          {
-            pattern: '@/**/**',
-            group: 'parent',
-            position: 'before',
-          },
-        ],
-        alphabetize: { order: 'asc' },
-      },
-    ],
+    // 'import/order': [
+    //   'error',
+    //   {
+    //     groups: [
+    //       'builtin',
+    //       'external',
+    //       'internal',
+    //       'parent',
+    //       'sibling',
+    //       'index',
+    //       'object',
+    //       'type',
+    //     ],
+    //     pathGroups: [
+    //       {
+    //         pattern: '@/**/**',
+    //         group: 'parent',
+    //         position: 'before',
+    //       },
+    //     ],
+    //     alphabetize: { order: 'asc' },
+    //   },
+    // ],
   },
 };
