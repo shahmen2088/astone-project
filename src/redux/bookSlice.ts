@@ -1,31 +1,28 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type Book = {
-    id: string,
-    title: string,
-    author: string
+  id: string;
+  title: string;
+  author: string;
 };
 
-
 type BookState = {
-    list: Book[], 
-}
+  list: Book[];
+};
 
 const initialState: BookState = {
-    list: [],
-}
-
+  list: [],
+};
 
 const bookSlice = createSlice({
-    name: "books",
-   initialState,
-    reducers: {
-        addBook(state, action: PayloadAction<Book>)  {
-            state.list.push(action.payload)
-        },
-    }
-})
+  name: 'books',
+  initialState,
+  reducers: {
+    addBook(state, action: PayloadAction<Book>) {
+      state.list.push(action.payload);
+    },
+  },
+});
 
-export const {addBook} = bookSlice.actions;
-export default  bookSlice.reducer;
-
+export const { addBook } = bookSlice.actions;
+export default bookSlice.reducer;
