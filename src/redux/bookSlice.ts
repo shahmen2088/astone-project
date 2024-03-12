@@ -19,13 +19,9 @@ const initialState: BookState = {
 const bookSlice = createSlice({
     name: "books",
    initialState,
-    reducers:{
-        addBook:(state, action :PayloadAction<string>) {
-            state.list.push({
-                id: new Date().toISOString(),
-                title:"New Book",
-                author:"Unknown"
-            })
+    reducers: {
+        addBook(state, action: PayloadAction<Book>)  {
+            state.list.push(action.payload)
         },
     }
 })
