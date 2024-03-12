@@ -11,11 +11,16 @@ module.exports = {
   ],
   overrides: [],
   parser: '@typescript-eslint/parser',
+  settings: {
+    react: {
+      version: 'detect', // Tells eslint-plugin-react to automatically detect the version of React to use
+    },
+  },
+  plugins: ['@typescript-eslint', 'react', 'import'],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
   rules: {
     'prettier/prettier': [
       'warn',
@@ -28,28 +33,28 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'no-unused-expressions': 'error',
     'react/jsx-no-useless-fragment': 'error',
-    // 'import/order': [
-    //   'error',
-    //   {
-    //     groups: [
-    //       'builtin',
-    //       'external',
-    //       'internal',
-    //       'parent',
-    //       'sibling',
-    //       'index',
-    //       'object',
-    //       'type',
-    //     ],
-    //     pathGroups: [
-    //       {
-    //         pattern: '@/**/**',
-    //         group: 'parent',
-    //         position: 'before',
-    //       },
-    //     ],
-    //     alphabetize: { order: 'asc' },
-    //   },
-    // ],
+    'import/order': [
+      'error',
+      {
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type',
+        ],
+        pathGroups: [
+          {
+            pattern: '@/**/**',
+            group: 'parent',
+            position: 'before',
+          },
+        ],
+        alphabetize: { order: 'asc' },
+      },
+    ],
   },
 };
