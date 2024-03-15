@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Header } from './components/Header/Header';
 import Main from './components/Main/Main';
-import { useAppDispatch, useAppSelector } from './hook/hook';
+import { useAppDispatch } from './hook/hook';
 import { fetchBooks } from './redux/bookSlice';
 
 function App() {

@@ -4,8 +4,7 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ book }) => {
-  const { id, title, authors, image, publisher, publishedDate, description } =
-    book; //Проблема с типами, пока не понимаю как работать
+  const { title, authors, image, publisher, publishedDate, description } = book; //Проблема с типами, пока не понимаю как работать
   return (
     <li className="card">
       <h3>Title: {title}</h3>

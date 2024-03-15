@@ -60,7 +60,7 @@ const bookSlice = createSlice({
       state.entities = transformDate;
     });
     builder.addCase(fetchBooks.rejected, (state, action) => {
-      console.log(`Error: ${action.error.message}`);
+      alert(`Error: ${action.error.message}`);
     });
   },
 });

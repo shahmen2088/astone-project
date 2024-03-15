@@ -10,7 +10,7 @@ export const Header = () => {
 
   const searchBook = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      console.log('Hello');
+      alert('hello');
     }
   };
 
