@@ -1,15 +1,10 @@
 import React from 'react';
-import { useAppSelector } from '../../hook/hook';
-import { Card } from '../Card/Card';
+import st from './CardList.module.css';
 
-export const CardList: React.FC = () => {
-  const cards = useAppSelector((state) => state.books.entities);
+interface CardListProps {
+  children: JSX.Element[];
+}
 
-  return (
-    <ul>
-      {cards.map((card) => (
-        <Card key={card.id} book={card} /> // Проблема с типами, пока не понимаю как работать
-      ))}
-    </ul>
-  );
+export const CardList = ({ children }: CardListProps) => {
+  return <ul className={st.card__list}>{children}</ul>;
 };

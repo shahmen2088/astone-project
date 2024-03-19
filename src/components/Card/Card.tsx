@@ -1,25 +1,19 @@
 import React from 'react';
-interface CardProps {
-  book: object;
-}
+import { Book } from '../../redux/booksApi';
+import st from './Card.module.css';
 
-export const Card: React.FC<CardProps> = ({ book }) => {
-  const { title, authors, image, publisher, publishedDate, description } = book; //Проблема с типами, пока не понимаю как работать
+export const Card = ({ authors, title, image }: Book) => {
   return (
-    <li className="card">
-      <h3>Title: {title}</h3>
-      <p>Author(s): {authors}</p>
-      <img src={image || ''} alt={`Cover for ${title}`} />
-      <div>Publisher: {publisher}</div>
-      <div>
-        Published Date:{' '}
-        {new Intl.DateTimeFormat('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        }).format(new Date(publishedDate))}
-      </div>
-      <div>{description}</div>
+    <li className={st.card}>
+      <a href="">
+        <img
+          className={st.card__img}
+          src={image || ''}
+          alt={`Cover for ${title}`}
+        />
+      </a>
+      <h3 className={st.card__title}>{title}</h3>
+      <p className={st.card__author}>{authors}</p>
     </li>
   );
 };

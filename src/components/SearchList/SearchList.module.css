@@ -1,0 +1,30 @@
+.search__list {
+  position: absolute;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  width: 100%;
+}
+
+.search__list li {
+  list-style-type: none;
+}
+
+.search__link {
+  display: block;
+  padding: 10px 15px;
+  font-size: 18px;
+  width: 90%;
+  border-radius: 1px;
+  border: 1px solid #000000;
+  border-top: none;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  color: #222;
+}
+
+.search__link:focus,
+.search__link:hover {
+  outline: 0;
+  background-color: #e9e9e9;
+}
