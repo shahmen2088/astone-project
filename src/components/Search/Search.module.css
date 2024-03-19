@@ -1,0 +1,35 @@
+.search {
+  position: relative;
+  display: flex;
+  width: 55%;
+  font-weight: 300;
+  font-size: 40px;
+  color: #555;
+}
+
+.search_box {
+  width: 80%;
+  margin: 0 12px;
+  padding: 8px 20px;
+  height: 50px;
+  border: 2px solid #333;
+  transition: all 0.15s ease-in-out;
+  font-size: 18px;
+}
+.search_box:focus {
+  width: 90%;
+  margin: 0;
+  outline: 0;
+}
+
+.search_label {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  font-size: 40px;
+  transition: all 0.15s ease-in-out;
+}
+
+.search-box:focus + .search-label {
+  transform: translateX(12px);
+}
