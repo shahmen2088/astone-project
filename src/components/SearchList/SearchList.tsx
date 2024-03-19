@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { booksApi } from '../../redux/booksApi';
 import st from './SearchList.module.css';
@@ -10,7 +9,7 @@ type SearchListProp = {
 export const SearchList = ({ bookQuery }: SearchListProp) => {
   const { data: books, isError } = booksApi.useGetBooksQuery({
     bookQuery: bookQuery,
-    limit: 10,
+    limit: 8,
   });
 
   return (

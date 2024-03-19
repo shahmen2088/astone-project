@@ -1,4 +1,3 @@
-import React from 'react';
 import { Book } from '../../redux/booksApi';
 import st from './Card.module.css';
 

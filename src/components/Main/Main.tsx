@@ -1,4 +1,3 @@
-import React from 'react';
 import { Loader } from '../../UI/Loader/Loader';
 import { booksApi } from '../../redux/booksApi';
 import { Card } from '../Card/Card';
@@ -11,7 +10,7 @@ export const Main = () => {
     data: books,
     isLoading,
     isError,
-  } = booksApi.useGetBooksQuery({ bookQuery: 'python', limit: 5 });
+  } = booksApi.useGetBooksQuery({ bookQuery: 'python', limit: 8 });
 
   if (isError) {
     return <div>Dirt</div>;

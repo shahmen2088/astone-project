@@ -1,16 +1,15 @@
-import React from 'react';
-import './Loader.module.css';
+import st from './Loader.module.css';
 export const Loader = () => {
   return (
-    <figure>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <figure className={st.loader}>
+      <div className={st.loader__item}></div>
+      <div className={st.loader__item}></div>
+      <div className={st.loader__item}></div>
+      <div className={st.loader__item}></div>
+      <div className={st.loader__item}></div>
+      <div className={st.loader__item}></div>
+      <div className={st.loader__item}></div>
+      <div className={st.loader__item}></div>
     </figure>
   );
 };
