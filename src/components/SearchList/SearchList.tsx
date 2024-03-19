@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAppDispatch } from '../../hook/hook';
 import { booksApi } from '../../redux/booksApi';
 import st from './SearchList.module.css';
 

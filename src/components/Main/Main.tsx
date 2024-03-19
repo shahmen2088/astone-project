@@ -1,8 +1,9 @@
 import React from 'react';
+import { Loader } from '../../UI/Loader/Loader';
 import { booksApi } from '../../redux/booksApi';
 import { Card } from '../Card/Card';
 import { CardList } from '../CardList/CardList';
-import { Loader } from '../../UI/Loader/Loader';
+
 import sl from './Main.module.css';
 
 export const Main = () => {
