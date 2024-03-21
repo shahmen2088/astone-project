@@ -1,5 +1,5 @@
-import { Button } from '../../UI/Button/Button';
-import { Search } from '../Search/Search';
+import { Link } from 'react-router-dom';
+import { Search } from '../../features/Search/Search';
 
 import sl from './Header.module.css';
 
@@ -8,13 +8,15 @@ export const Header = () => {
     <header>
       <div className={sl.container}>
         <div className={sl.logo}>
-          <a href="#">Книжная лавка</a>
+          <Link className="header__logo" to={'/'}>
+            Книжная лавка
+          </Link>
         </div>
         <Search />
         <nav>
-          <Button buttonName="Избранное" />
-          <Button buttonName="Вход" />
-          <Button buttonName="Регистрация" />
+          <Link to={'/register'}>Избранное</Link>
+          <Link to={'/login'}>Вход</Link>
+          <Link to={'/register'}>Регистрация</Link>
         </nav>
       </div>
     </header>

@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
-import { booksApi } from '../../redux/booksApi';
+import { booksApi } from '../../shared/api/booksApi';
 import st from './SearchList.module.css';
 
-type SearchListProp = {
+type Props = {
   bookQuery: string;
 };
 
-export const SearchList = ({ bookQuery }: SearchListProp) => {
+export const SearchList = ({ bookQuery }: Props) => {
   const { data: books, isError } = booksApi.useGetBooksQuery({
     bookQuery: bookQuery,
-    limit: 8,
+    limit: 10,
   });
 
   return (

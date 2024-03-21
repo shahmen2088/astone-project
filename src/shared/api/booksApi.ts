@@ -39,6 +39,12 @@ interface BookDetailsData {
     description: string;
   };
 }
+
+interface BookDetails extends Book {
+  publisher: string;
+  publishedDate: string;
+  description: string;
+}
 export const booksApi = createApi({
   reducerPath: 'booksApi',
   baseQuery: fetchBaseQuery({
@@ -47,7 +53,7 @@ export const booksApi = createApi({
   endpoints: (builder) => ({
     getBooks: builder.query<Book[], BookQuery>({
       query: ({ bookQuery, limit }) => ({
-        url: `volumes?q=${bookQuery}&key=AIzaSyDpR9RvrVI5fmeK-3EzAJkjl0Slne-cspY`,
+        url: `volumes?q=${bookQuery}`,
         params: {
           projection: 'lite',
           maxResults: limit,
@@ -61,7 +67,7 @@ export const booksApi = createApi({
           image: item.volumeInfo.imageLinks?.thumbnail,
         })),
     }),
-    getBookInfo: builder.query({
+    getBookInfo: builder.query<BookDetails, string | undefined>({
       query: (bookId) => `volumes/${bookId}`,
       transformResponse: (item: BookDetailsData) => ({
         id: item.id,
