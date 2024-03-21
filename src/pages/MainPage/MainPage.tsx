@@ -1,16 +1,18 @@
-import { Loader } from '../../UI/Loader/Loader';
-import { booksApi } from '../../redux/booksApi';
-import { Card } from '../Card/Card';
-import { CardList } from '../CardList/CardList';
+import { Card } from '../../entities/Card/Card';
+import { CardList } from '../../entities/CardList/CardList';
+import { Loader } from '../../shared/UI/Loader/Loader';
+import { booksApi } from '../../shared/api/booksApi';
+// import { useAppDispatch } from '../../shared/hook/hook';
+// import { useAuth } from '../../shared/hook/useAuth';
 
-import sl from './Main.module.css';
+import sl from './MainPage.module.css';
 
-export const Main = () => {
+export const MainPage = () => {
   const {
     data: books,
     isLoading,
     isError,
-  } = booksApi.useGetBooksQuery({ bookQuery: 'python', limit: 8 });
+  } = booksApi.useGetBooksQuery({ bookQuery: 'Python', limit: 20 });
 
   if (isError) {
     return <div>Dirt</div>;
@@ -31,7 +33,6 @@ export const Main = () => {
           ))}
         </CardList>
       )}
-
       {isLoading && <Loader />}
     </main>
   );
