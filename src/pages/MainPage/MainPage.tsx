@@ -8,9 +8,6 @@ import { booksApi } from '../../shared/api/booksApi';
 import sl from './MainPage.module.css';
 
 export const MainPage = () => {
-  // const dispatch = useAppDispatch();
-
-  // const { isAuth, email } = useAuth();
   const {
     data: books,
     isLoading,
