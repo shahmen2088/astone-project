@@ -21,7 +21,6 @@ export const SignUp = () => {
           }),
         );
         navigate('/');
-        console.log('success');
       })
       .catch((error) => alert(error));
   };

@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import st from './Form.module.css';
 
 type Props = {

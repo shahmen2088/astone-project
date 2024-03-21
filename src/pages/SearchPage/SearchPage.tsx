@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
-import { Loader } from '../../shared/UI/Loader/Loader';
 import { Card } from '../../entities/Card/Card';
 import { CardList } from '../../entities/CardList/CardList';
+import { Loader } from '../../shared/UI/Loader/Loader';
 import { useGetBooksQuery } from '../../shared/api/booksApi';
 import sl from '../MainPage/MainPage.module.css';
 
