@@ -20,7 +20,7 @@ export const SignIn = () => {
             token: user.refreshToken,
           }),
         );
-        navigate('/');
+        navigate('/favourites');
       })
       .catch(() => alert('Invalid user!'));
   };

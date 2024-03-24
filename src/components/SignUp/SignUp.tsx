@@ -20,7 +20,7 @@ export const SignUp = () => {
             token: user.refreshToken,
           }),
         );
-        navigate('/');
+        navigate('/login');
       })
       .catch((error) => alert(error));
   };
