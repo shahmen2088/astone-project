@@ -11,12 +11,17 @@ type Inputs = {
 
 export const Search = () => {
   const [searchText, setSearchText] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const debouncedSearchTerm = useDebounce(searchText, 500);
   const { register } = useForm<Inputs>();
   const navigate = useNavigate();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
+    setIsDropdownOpen(true);
+  };
+  const handleBlur = () => {
+    setTimeout(() => setIsDropdownOpen(false), 500);
   };
 
   const searchBooks: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
@@ -24,6 +29,7 @@ export const Search = () => {
       e.preventDefault();
       const formatText = searchText.trim();
       navigate(formatText ? `/search?q=${formatText}` : '/');
+      setIsDropdownOpen(false);
       setSearchText('');
     }
   };
@@ -40,10 +46,13 @@ export const Search = () => {
         onChange={handleChange}
         value={searchText}
         onKeyDown={searchBooks}
+        onBlur={handleBlur}
       />
       <label className={st.search_label} htmlFor="search-box"></label>
 
-      <SearchList bookQuery={debouncedSearchTerm} />
+      {isDropdownOpen && debouncedSearchTerm && (
+        <SearchList bookQuery={debouncedSearchTerm} />
+      )}
     </form>
   );
 };
