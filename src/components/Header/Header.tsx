@@ -14,7 +14,7 @@ export const Header = () => {
         </div>
         <Search />
         <nav>
-          <Link to={'/register'}>Избранное</Link>
+          <Link to={'/login'}>Избранное</Link>
           <Link to={'/login'}>Вход</Link>
           <Link to={'/register'}>Регистрация</Link>
         </nav>

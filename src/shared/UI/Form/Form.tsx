@@ -23,7 +23,7 @@ export const Form = ({ title, step, stepPath, handleClick }: Props) => {
           <input
             value={email}
             type="email"
-            name="email"
+            id="email"
             placeholder="Email Address"
             onChange={(e) => setEmail(e.target.value)}
           ></input>
@@ -33,7 +33,7 @@ export const Form = ({ title, step, stepPath, handleClick }: Props) => {
           <input
             value={pass}
             type="password"
-            name="password"
+            id="password"
             placeholder="Password"
             onChange={(e) => setPass(e.target.value)}
           ></input>
@@ -44,7 +44,10 @@ export const Form = ({ title, step, stepPath, handleClick }: Props) => {
             className={st.button}
             title={title}
             value={title}
-            onClick={() => handleClick(email, pass)}
+            onClick={(e) => {
+              e.preventDefault();
+              handleClick(email, pass);
+            }}
           ></input>
         </div>
       </form>
