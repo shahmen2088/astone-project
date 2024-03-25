@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { Search } from '../../features/Search/Search';
-
 import sl from './Header.module.css';
 
 export const Header = () => {
@@ -14,9 +13,14 @@ export const Header = () => {
         </div>
         <Search />
         <nav>
-          <Link to={'/login'}>Избранное</Link>
-          <Link to={'/login'}>Вход</Link>
-          <Link to={'/register'}>Регистрация</Link>
+          {isAuth ? (
+            <Link to={'/favourites'}>Избранное</Link>
+          ) : (
+            <>
+              <Link to={'/login'}>Вход</Link>
+              <Link to={'/register'}>Регистрация</Link>
+            </>
+          )}
         </nav>
       </div>
     </header>

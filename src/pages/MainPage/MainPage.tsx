@@ -2,8 +2,6 @@ import { Card } from '../../entities/Card/Card';
 import { CardList } from '../../entities/CardList/CardList';
 import { Loader } from '../../shared/UI/Loader/Loader';
 import { booksApi } from '../../shared/api/booksApi';
-// import { useAppDispatch } from '../../shared/hook/hook';
-// import { useAuth } from '../../shared/hook/useAuth';
 
 import sl from './MainPage.module.css';
 

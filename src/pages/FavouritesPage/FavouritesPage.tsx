@@ -3,5 +3,5 @@ import { useAuth } from '../../shared/hook/useAuth';
 
 export default function FavouritesPage() {
   const { isAuth } = useAuth();
-  return isAuth ? <div>FavouritesPage</div> : <>{redirect('/login')}</>;
+  return isAuth ? <div>FavouritesPage: </div> : <>{redirect('/login')}</>;
 }

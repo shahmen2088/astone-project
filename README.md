@@ -34,7 +34,7 @@
 - [ ] Есть применение Контекст API: [Name]()
 - [x] Есть применение предохранителя: [ErrorBoundary](src/app/router/app-router.tsx)
 - [x] Есть хотя бы один кастомный хук: [useAuth](src/shared/hook/useAuth.ts)
-- [x] Хотя бы несколько компонентов используют PropTypes: [Link](src/entities/Card/Card.tsx), [Button](src/shared/UI/Form/Form.tsx)
+- [x] Хотя бы несколько компонентов используют PropTypes: [Card](src/entities/Card/Card.tsx), [Form](src/shared/UI/Form/Form.tsx)
 - [x] Поиск не должен триггерить много запросов к серверу (debounce): [useDebounce](src/shared/hook/useDebounce.tsx), [Search](src/features/Search/Search.tsx)
 - [x] Есть применение lazy + Suspense: [AppRouter](src/app/router/app-router.tsx)
 
@@ -58,4 +58,6 @@
 
 ### Дополнительная информация
 
-- [x] Использован `Feature-Sliced Design` подход
+- [x] Кодовая база организована по методологи [Feature-Sliced Design](https://feature-sliced.design/ru/)
+- [x] Проект собран при помощи [Vite](https://vitejs.dev)
+- [x] При работе со стилями использовались `CSS Modules`
