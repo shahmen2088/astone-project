@@ -1,11 +1,12 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Search } from '../../features/Search/Search';
-import { useAppDispatch, useAppSelector } from '../../shared/hook/hook';
+import { useAppDispatch } from '../../shared/hook/hook';
 import { removeUser } from '../../shared/reducers/slices/userSlice';
+import { checkUserRegisterLS } from '../../utils/localStorageUtils';
 import sl from './Header.module.css';
 
 export const Header = () => {
-  const { email } = useAppSelector((state) => state.user);
+  const isAuthenticated = checkUserRegisterLS();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -24,7 +25,7 @@ export const Header = () => {
         </div>
         <Search />
         <nav>
-          {email ? (
+          {isAuthenticated ? (
             <>
               {' '}
               <Link to={'/favourites'}>Избранное</Link>

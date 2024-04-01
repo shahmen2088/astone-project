@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../shared/hook/hook';
 import { setUser } from '../../shared/reducers/slices/userSlice';
 import st from './UserSignUpForm.module.css';
@@ -8,6 +8,7 @@ export default function UserSignUpForm() {
   const dispatch = useAppDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
@@ -19,6 +20,7 @@ export default function UserSignUpForm() {
         history: [],
       }),
     );
+    navigate('/login');
   };
   return (
     <div className={st.form_wrapper}>

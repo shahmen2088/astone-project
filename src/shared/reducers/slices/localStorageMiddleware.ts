@@ -33,15 +33,6 @@ startListeningApp({
 });
 
 startListeningApp({
-  actionCreator: setUser,
-  effect: (action) => {
-    if (action.payload.email) {
-      addNewUserLS(action.payload.email, action.payload.password);
-    }
-  },
-});
-
-startListeningApp({
   actionCreator: loginUser,
   effect: (action) => {
     updateUserInfoLS(action.payload.email);

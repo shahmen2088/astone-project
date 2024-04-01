@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import {
-  updateUserInfoLS,
   intitialStateLS,
+  getParseItemsLS,
 } from '../../../utils/localStorageUtils';
 import { Book } from '../../api/booksApi';
 
@@ -25,7 +25,7 @@ const userSlice = createSlice({
       state.history = payload.history;
     },
     loginUser: (state, action: PayloadAction<UserType>) => {
-      const user = updateUserInfoLS(action.payload.email);
+      const user = getParseItemsLS(action.payload.email);
       state.email = user.email;
       state.password = user.password;
       state.cards = user.cards;
@@ -55,19 +55,6 @@ const userSlice = createSlice({
     addItemToHistory: (state, { payload }) => {
       state.history.push(payload);
     },
-    // removeItemFromCard: (state, { payload }: PayloadAction<UserType>) => {
-    //   let newCard = state.cards.filter(({ id }) => id !== payload);
-    //   state.cards = newCard;
-    // },
-    // setCurrentUser:(state,action)=> {
-    //   state.currentUser = action.payload;
-    // },
-    // startLoading:(state)=>{
-    //   state.isLoading=true;
-    // },
-    // finishLoading:(state)=>{
-    //   state.isLoading=false;
-    //   },
   },
 });
 

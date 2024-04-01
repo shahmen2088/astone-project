@@ -12,45 +12,33 @@ export const addNewUserLS = (email: string, password: string) => {
       }),
     );
   }
-  const user = localStorage.getItem(email);
-  if (user) {
-    const parsedUser = JSON.parse(user);
-    localStorage.setItem('online', parsedUser.email);
-  }
+  // const user = localStorage.getItem(email);
+  // if (user) {
+  //   const parsedUser = JSON.parse(user);
+  //   localStorage.setItem('online', parsedUser.email);
+  // }
 };
 
-export const updateUserInfoLS = (email: string): UserType => {
+export const updateUserInfoLS = (email: string) => {
   const user = localStorage.getItem(email);
   if (user) {
     const parsedUser = JSON.parse(user);
     localStorage.setItem('online', parsedUser.email);
-    return {
-      email: parsedUser.email,
-      password: parsedUser.password,
-      cards: parsedUser.cards,
-      history: parsedUser.history,
-    };
   }
-  return {
-    email: '',
-    password: '',
-    cards: [],
-    history: [],
-  };
 };
 
 export const checkUserRegisterLS = () => {
   return localStorage.getItem('online');
-}; //Проверяем авторизацию  пользователя
+};
 
 export const removeCurrentUserLS = () => {
   localStorage.removeItem('online');
-}; //Выход пользователя
+};
 
 export const intitialStateLS = (): UserType => {
   const email = localStorage.getItem('online');
   if (email) {
-    return updateUserInfoLS(email);
+    return getParseItemsLS(email);
   }
   return {
     email: '',
@@ -58,7 +46,7 @@ export const intitialStateLS = (): UserType => {
     cards: [],
     history: [],
   };
-}; //Инициализация при обновлении страницы
+};
 
 export const getParseItemsLS = (email: string) => {
   const items = localStorage.getItem(email);

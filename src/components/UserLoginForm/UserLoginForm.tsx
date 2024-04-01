@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../shared/hook/hook';
 import { loginUser } from '../../shared/reducers/slices/userSlice';
+import { checkIsAuth } from '../../utils/checkAuthUtils';
 import st from '../UserSignUpForm/UserSignUpForm.module.css';
 
 export default function UserLoginForm() {
   const dispatch = useAppDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    dispatch(
-      loginUser({
-        email,
-        password,
-        cards: [],
-        history: [],
-      }),
-    );
+    if (checkIsAuth(email, password)) {
+      dispatch(
+        loginUser({
+          email,
+          password,
+          cards: [],
+          history: [],
+        }),
+      );
+      navigate('/', { replace: true });
+    } else {
+      navigate('/login');
+    }
   };
   return (
     <div className={st.form_wrapper}>
