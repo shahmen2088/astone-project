@@ -1,4 +1,5 @@
 .card {
+  border-radius: 10px;
   border: 2px solid #333;
   padding: 20px;
   text-align: center;
@@ -11,8 +12,11 @@
 .card__img {
   margin-bottom: 10px;
 }
+
 .card__title {
   margin-bottom: 10px;
+  color: black;
+  text-decoration: none;
 }
 
 .card__title:hover {

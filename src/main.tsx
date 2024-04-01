@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import App from './app/App.tsx';
 import { store } from './app/providers/store/store.ts';
-import './app/firebase/firebase.ts';
 
 import './index.css';
 

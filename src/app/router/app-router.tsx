@@ -11,8 +11,13 @@ const MainPage = lazy(() =>
 );
 const BookPage = lazy(() => import('../../pages/BookPage/BookPage'));
 const SearchPage = lazy(() => import('../../pages/SearchPage/SearchPage'));
-const SignInPage = lazy(() => import('../../pages/SignInPage/SignInPage'));
+const HistoryPage = lazy(() => import('../../pages/HistoryPage/HistoryPage'));
+const FavouritesPage = lazy(
+  () => import('../../pages/FavouritesPage/FavouritesPage'),
+);
 const SignUpPage = lazy(() => import('../../pages/SignUpPage/SignUpPage'));
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
+const PrivateRoute = lazy(() => import('./PrivateRoute'));
 
 export const AppRouter = () => {
   return (
@@ -22,8 +27,12 @@ export const AppRouter = () => {
           <Route path="/" element={<MainPage />} />
           <Route path="/:bookId" element={<BookPage />} />
           <Route path="/search" element={<SearchPage />} />
-          <Route path="/login" element={<SignInPage />} />
-          <Route path="/register" element={<SignUpPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signUp" element={<SignUpPage />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/favourites" element={<FavouritesPage />} />
+            <Route path="/history" element={<HistoryPage />} />
+          </Route>
         </Routes>
       </Suspense>
     </ErrorBoundary>

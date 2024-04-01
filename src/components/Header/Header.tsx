@@ -1,9 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search } from '../../features/Search/Search';
-
+import { useAppDispatch } from '../../shared/hook/hook';
+import { removeUser } from '../../shared/reducers/slices/userSlice';
+import { checkUserRegisterLS } from '../../utils/localStorageUtils';
 import sl from './Header.module.css';
 
 export const Header = () => {
+  const isAuthenticated = checkUserRegisterLS();
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const handleClick = () => {
+    dispatch(removeUser());
+    navigate('/');
+  };
+
   return (
     <header>
       <div className={sl.container}>
@@ -14,9 +25,19 @@ export const Header = () => {
         </div>
         <Search />
         <nav>
-          <Link to={'/register'}>Избранное</Link>
-          <Link to={'/login'}>Вход</Link>
-          <Link to={'/register'}>Регистрация</Link>
+          {isAuthenticated ? (
+            <>
+              {' '}
+              <Link to={'/favourites'}>Избранное</Link>
+              <Link to={'/history'}>История</Link>
+              <button onClick={handleClick}>Выход</button>
+            </>
+          ) : (
+            <>
+              <Link to={'/login'}>Вход</Link>
+              <Link to={'/signUp'}>Регистрация</Link>
+            </>
+          )}
         </nav>
       </div>
     </header>
