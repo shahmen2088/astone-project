@@ -4,7 +4,6 @@ import { checkUserRegisterLS } from '../../utils/localStorageUtils';
 
 export default function PrivateRoute() {
   const isAuthenticated = checkUserRegisterLS();
-  console.log(isAuthenticated);
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 }
