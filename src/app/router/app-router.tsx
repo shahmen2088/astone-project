@@ -3,9 +3,6 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes } from 'react-router-dom';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 import { Loader } from '../../shared/UI/Loader/Loader';
-import UserLoginForm from '../../components/UserLoginForm/UserLoginForm';
-import UserSignUpForm from '../../components/UserSignUpForm/UserSignUpForm';
-import LoginPage from '../../pages/LoginPage/LoginPage';
 
 const MainPage = lazy(() =>
   import('../../pages/MainPage/MainPage').then((module) => ({
@@ -19,6 +16,7 @@ const FavouritesPage = lazy(
   () => import('../../pages/FavouritesPage/FavouritesPage'),
 );
 const SignUpPage = lazy(() => import('../../pages/SignUpPage/SignUpPage'));
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
 const PrivateRoute = lazy(() => import('./PrivateRoute'));
 
 export const AppRouter = () => {
