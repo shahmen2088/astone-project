@@ -1,8 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search } from '../../features/Search/Search';
+import { useAppDispatch, useAppSelector } from '../../shared/hook/hook';
+import { removeUser } from '../../shared/reducers/slices/userSlice';
 import sl from './Header.module.css';
 
 export const Header = () => {
+  const { email } = useAppSelector((state) => state.user);
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const handleClick = () => {
+    dispatch(removeUser());
+    navigate('/');
+  };
+
   return (
     <header>
       <div className={sl.container}>
@@ -13,12 +24,17 @@ export const Header = () => {
         </div>
         <Search />
         <nav>
-          {isAuth ? (
-            <Link to={'/favourites'}>Избранное</Link>
+          {email ? (
+            <>
+              {' '}
+              <Link to={'/favourites'}>Избранное</Link>
+              <Link to={'/history'}>История</Link>
+              <button onClick={handleClick}>Выход</button>
+            </>
           ) : (
             <>
               <Link to={'/login'}>Вход</Link>
-              <Link to={'/register'}>Регистрация</Link>
+              <Link to={'/signUp'}>Регистрация</Link>
             </>
           )}
         </nav>

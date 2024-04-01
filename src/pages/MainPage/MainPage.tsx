@@ -10,7 +10,7 @@ export const MainPage = () => {
     data: books,
     isLoading,
     isError,
-  } = booksApi.useGetBooksQuery({ bookQuery: 'Python', limit: 20 });
+  } = booksApi.useGetBooksQuery({ bookQuery: 'Python', limit: 10 });
 
   if (isError) {
     return <div>Dirt</div>;

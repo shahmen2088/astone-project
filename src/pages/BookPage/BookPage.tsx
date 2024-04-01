@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { Button } from '../../shared/UI/Button/Button';
 import { Loader } from '../../shared/UI/Loader/Loader';
 import { booksApi } from '../../shared/api/booksApi';
 
@@ -12,7 +11,7 @@ export default function BookPage() {
         <article className="article">
           <div className="article__img">
             <img src={book.image} alt={book.title} />
-            <Button buttonName="Add to cart" />
+            <button>Add to cart</button>
           </div>
 
           <div className="article__text">
