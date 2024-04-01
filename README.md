@@ -28,11 +28,11 @@
 - [x] Пишем функциональные компоненты c хуками в приоритете над классовыми
 - [ ] Есть разделение на умные и глупые компоненты: [Умный](), [Глупый]()
 - [x] Есть рендеринг списков: [Main](src/pages/MainPage/MainPage.tsx), [SearchList](src/features/SearchList/SearchList.tsx)
-- [x] Реализована хотя бы одна форма: [Form](src/shared/UI/Form/Form.tsx)
+- [x] Реализована хотя бы одна форма: [Form](src/components/UserLoginForm/UserLoginForm.tsx)
 - [ ] Есть применение Контекст API: [Name]()
 - [x] Есть применение предохранителя: [ErrorBoundary](src/app/router/app-router.tsx)
 - [x] Есть хотя бы один кастомный хук: [useAuth](src/shared/hook/useAuth.ts)
-- [x] Хотя бы несколько компонентов используют PropTypes: [Card](src/entities/Card/Card.tsx), [Form](src/shared/UI/Form/Form.tsx)
+- [x] Хотя бы несколько компонентов используют PropTypes: [Card](src/entities/Card/Card.tsx)
 - [x] Поиск не должен триггерить много запросов к серверу (debounce): [useDebounce](src/shared/hook/useDebounce.tsx), [Search](src/features/Search/Search.tsx)
 - [x] Есть применение lazy + Suspense: [AppRouter](src/app/router/app-router.tsx)
 
@@ -40,7 +40,7 @@
 
 - [x] Используем Modern Redux with Redux Toolkit: [store](src/app/providers/store/store.ts)
 - [x] Используем слайсы: [userSlice](src/shared/reducers/slices/userSlice.ts)
-- [ ] Есть хотя бы одна кастомная мидлвара или `createListenerMiddleware`: [Name]()
+- [x] Есть хотя бы одна кастомная мидлвара или `createListenerMiddleware`: [LSMIddleware](src/shared/reducers/slices/localStorageMiddleware.ts)
 - [x] Используется RTK Query: [booksApi](src/shared/api/booksApi.ts)
 - [x] Используется Transforming Responses: [transformResponse](src/shared/api/booksApi.ts)
 
@@ -49,7 +49,6 @@
 ### 2 уровень (необязательный)
 
 - [x] Используется TypeScript
-- [x] Используется Firebase: [firebaseApi](src/app/firebase/firebase.ts)
 - [x] Настроен CI/CD
 
 ---
