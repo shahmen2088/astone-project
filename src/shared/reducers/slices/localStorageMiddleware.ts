@@ -11,6 +11,7 @@ import {
   addItemToCard,
   addItemToHistory,
   deleteFromCard,
+  deleteItemToHistory,
   loginUser,
   removeUser,
   setUser,
@@ -68,6 +69,13 @@ startListeningApp({
 });
 startListeningApp({
   actionCreator: addItemToHistory,
+  effect: (_, api) => {
+    setParamsUser(api.getState().user.email, api.getState().user);
+  },
+});
+
+startListeningApp({
+  actionCreator: deleteItemToHistory,
   effect: (_, api) => {
     setParamsUser(api.getState().user.email, api.getState().user);
   },

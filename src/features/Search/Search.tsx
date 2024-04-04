@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '../../shared/hook/hook';
+import { useAppDispatch, useEmailSelector } from '../../shared/hook/hook';
 import useDebounce from '../../shared/hook/useDebounce';
 import { addItemToHistory } from '../../shared/reducers/slices/userSlice';
 import { SearchList } from '../SearchList/SearchList';
@@ -18,6 +18,7 @@ export const Search = () => {
   const debouncedSearchTerm = useDebounce(searchText, 500);
   const { register } = useForm<Inputs>();
   const navigate = useNavigate();
+  const email = useEmailSelector();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(event.target.value);
@@ -32,7 +33,19 @@ export const Search = () => {
       e.preventDefault();
       const formatText = searchText.trim();
       navigate(formatText ? `/search?q=${formatText}` : '/');
-      dispatch(addItemToHistory(formatText ? `/search?q=${formatText}` : '/'));
+
+      const currentTime = new Date();
+
+      if (email) {
+        dispatch(
+          addItemToHistory({
+            text: formatText,
+            link: `/search?q=${formatText}`,
+            time: currentTime.toLocaleTimeString(),
+          }),
+        );
+      }
+
       setIsDropdownOpen(false);
       setSearchText('');
     }
@@ -51,6 +64,7 @@ export const Search = () => {
         value={searchText}
         onKeyDown={searchBooks}
         onBlur={handleBlur}
+        onFocus={() => setIsDropdownOpen(true)}
       />
       <label className={st.search_label} htmlFor="search-box"></label>
 

@@ -1,0 +1,29 @@
+.container {
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.article {
+  display: flex;
+  align-items: center;
+}
+
+.article__img {
+  width: 100%;
+}
+
+.article__text {
+  width: 250%;
+}
+
+.article__text p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.article__text span {
+  font-weight: 700;
+}

@@ -84,3 +84,11 @@
 .form_footer a:hover {
   border-bottom: 1px dotted #8c8c8c;
 }
+
+.link {
+  margin-bottom: 5px;
+}
+
+.error {
+  color: red;
+}

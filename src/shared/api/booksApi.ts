@@ -53,7 +53,7 @@ export const booksApi = createApi({
   endpoints: (builder) => ({
     getBooks: builder.query<Book[], BookQuery>({
       query: ({ bookQuery, limit }) => ({
-        url: `volumes?q=${bookQuery}`,
+        url: `volumes?q=${!bookQuery ? 'ГенриФорд&&langRestrict=ru' : bookQuery}`,
         params: {
           projection: 'lite',
           maxResults: limit,

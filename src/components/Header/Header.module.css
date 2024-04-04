@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 80px;
   align-items: center;
   width: 100%;
@@ -9,13 +9,33 @@
   margin-bottom: 40px;
   padding: 0 15px;
   border-bottom: 2px solid #333;
-  background-color: rgb(247, 169, 73);
+  background-color: #faee9e;
+}
+
+.container_dark_theme {
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  padding: 0 15px;
+  border-bottom: 2px solid #333;
+  background-color: #353535;
+}
+
+.logo {
+  margin-right: 40px;
 }
 
 .logo a {
-  color: #333;
+  color: #faee9e;
   text-decoration: none;
   font-size: 25px;
+  padding: 5px 10px;
+  background-color: #a2110b;
 }
 
 .logo a:hover {
@@ -24,4 +44,44 @@
 
 .actions {
   display: flex;
+}
+
+.log_icon {
+  cursor: pointer;
+}
+
+.fav_icon,
+.hist_icon,
+.log_icon {
+  box-sizing: content-box;
+  width: 40px;
+  height: 35px;
+  padding: 5px;
+  margin-right: 40px;
+}
+
+.fav_icon:hover {
+  fill: #a2110b;
+  scale: 1.1;
+}
+.hist_icon:hover {
+  fill: #a2110b;
+  scale: 1.1;
+}
+.log_icon :hover {
+  fill: #a2110b;
+  scale: 1.1;
+}
+
+.auth {
+  display: flex;
+}
+.auth a {
+  text-decoration: none;
+  color: #a2110b;
+  margin-right: 20px;
+}
+
+.auth a:hover {
+  text-decoration: underline;
 }

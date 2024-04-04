@@ -6,13 +6,16 @@ import App from './app/App.tsx';
 import { store } from './app/providers/store/store.ts';
 
 import './index.css';
+import { ContextTheme } from './shared/contextTheme/ContextTheme.tsx';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ContextTheme.Provider value="dark">
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ContextTheme.Provider>
     </Provider>
   </React.StrictMode>,
 );

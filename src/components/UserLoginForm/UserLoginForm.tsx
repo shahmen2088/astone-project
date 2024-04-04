@@ -2,32 +2,31 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../shared/hook/hook';
 import { loginUser } from '../../shared/reducers/slices/userSlice';
-import { checkIsAuth } from '../../utils/checkAuthUtils';
+import { authenticateCredentials } from '../../utils/userVerificationUtils';
 import st from '../UserSignUpForm/UserSignUpForm.module.css';
 
 export default function UserLoginForm() {
   const dispatch = useAppDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+
+  const currentUser = authenticateCredentials(email, password);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
 
-    if (checkIsAuth(email, password)) {
-      dispatch(
-        loginUser({
-          email,
-          password,
-          cards: [],
-          history: [],
-        }),
-      );
+    if (currentUser.email) {
+      dispatch(loginUser({ ...currentUser }));
+
       navigate('/', { replace: true });
     } else {
+      setErrorMessage('Логин или пароль введены неверно');
       navigate('/login');
     }
   };
+
   return (
     <div className={st.form_wrapper}>
       <div className={st.title}>Вход</div>
@@ -65,6 +64,7 @@ export default function UserLoginForm() {
           <Link to={'/signUp'} className={st.link}>
             Зарегистрироваться
           </Link>
+          <p className={st.error}>{errorMessage}</p>
         </div>
       </form>
     </div>

@@ -1,7 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes } from 'react-router-dom';
-import ErrorPage from '../../pages/ErrorPage/ErrorPage';
 import { Loader } from '../../shared/UI/Loader/Loader';
 
 const MainPage = lazy(() =>
@@ -9,6 +8,7 @@ const MainPage = lazy(() =>
     default: module.MainPage,
   })),
 );
+const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 const BookPage = lazy(() => import('../../pages/BookPage/BookPage'));
 const SearchPage = lazy(() => import('../../pages/SearchPage/SearchPage'));
 const HistoryPage = lazy(() => import('../../pages/HistoryPage/HistoryPage'));
@@ -29,6 +29,7 @@ export const AppRouter = () => {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signUp" element={<SignUpPage />} />
+          <Route path="/error" element={<ErrorPage />} />
           <Route element={<PrivateRoute />}>
             <Route path="/favourites" element={<FavouritesPage />} />
             <Route path="/history" element={<HistoryPage />} />

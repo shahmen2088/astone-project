@@ -1,15 +1,18 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import {
-  intitialStateLS,
-  getParseItemsLS,
-} from '../../../utils/localStorageUtils';
+import { intitialStateLS } from '../../../utils/localStorageUtils';
 import { Book } from '../../api/booksApi';
+
+export type History = {
+  text: string;
+  link: string;
+  time: string;
+};
 
 export type UserType = {
   email: string;
   password: string;
   cards: Book[];
-  history: string[];
+  history: History[];
 };
 
 const initialState: UserType = intitialStateLS();
@@ -24,12 +27,11 @@ const userSlice = createSlice({
       state.cards = payload.cards;
       state.history = payload.history;
     },
-    loginUser: (state, action: PayloadAction<UserType>) => {
-      const user = getParseItemsLS(action.payload.email);
-      state.email = user.email;
-      state.password = user.password;
-      state.cards = user.cards;
-      state.history = user.history;
+    loginUser: (state, { payload }: PayloadAction<UserType>) => {
+      state.email = payload.email;
+      state.password = payload.password;
+      state.cards = payload.cards;
+      state.history = payload.history;
     },
     removeUser: (state) => {
       state.email = '';
@@ -52,8 +54,11 @@ const userSlice = createSlice({
     deleteFromCard: (state, { payload }: PayloadAction<string>) => {
       state.cards = state.cards.filter((book) => book.id !== payload);
     },
-    addItemToHistory: (state, { payload }) => {
+    addItemToHistory: (state, { payload }: PayloadAction<History>) => {
       state.history.push(payload);
+    },
+    deleteItemToHistory: (state, { payload }: PayloadAction<string>) => {
+      state.history = state.history.filter((item) => item.time !== payload);
     },
   },
 });
@@ -65,6 +70,7 @@ export const {
   addItemToCard,
   deleteFromCard,
   addItemToHistory,
+  deleteItemToHistory,
 } = userSlice.actions;
 
 export default userSlice.reducer;

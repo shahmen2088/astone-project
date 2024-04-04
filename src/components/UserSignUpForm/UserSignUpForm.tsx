@@ -2,25 +2,35 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../shared/hook/hook';
 import { setUser } from '../../shared/reducers/slices/userSlice';
+import { authenticateCredentials } from '../../utils/userVerificationUtils';
 import st from './UserSignUpForm.module.css';
 
 export default function UserSignUpForm() {
   const dispatch = useAppDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
+  const currentUser = authenticateCredentials(email, password);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
-    dispatch(
-      setUser({
-        email,
-        password,
-        cards: [],
-        history: [],
-      }),
-    );
-    navigate('/login');
+
+    if (currentUser.email) {
+      setErrorMessage(
+        'Эта электронная почта уже зарегистрирована. Пожалуйста, попробуйте использовать другое.',
+      );
+    } else {
+      dispatch(
+        setUser({
+          email,
+          password,
+          cards: [],
+          history: [],
+        }),
+      );
+      navigate('/login');
+    }
   };
   return (
     <div className={st.form_wrapper}>
@@ -63,6 +73,7 @@ export default function UserSignUpForm() {
           <Link to={'/login'} className={st.link}>
             У меня уже есть аккаунт
           </Link>
+          <p className={st.error}>{errorMessage}</p>
         </div>
       </form>
     </div>
