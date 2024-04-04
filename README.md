@@ -6,14 +6,15 @@
 
 - Проект представляет собой галерею книг
 - Использованное API: [Books API](https://developers.google.com/books?hl=en)
-- [Посмотреть проект]()
 
 ---
 
 ## Основной функционал
 
 - Регистрация и авторизация пользователей
-- Поиск по названию книг, выпадающее меню с книгами
+- Избранные карточки: пользователь может добавлять или удалять из списка избранных
+- Поиск по названию, выпадающее меню из карточек
+- История поиска: сохранение даты и названия карточки, возможность перейти на страницу поиска после нажатия на название карточки или дату
 
 ---
 
@@ -22,6 +23,7 @@
 ### 1 уровень (обязательный - необходимый минимум)
 
 - [ ] Реализованы Требования к функциональности
+- [ ] Для хранения учетных записей пользователей, их Избранного и Истории поиска, используется LocalStorage.
 
 #### React
 
@@ -29,10 +31,10 @@
 - [ ] Есть разделение на умные и глупые компоненты: [Умный](), [Глупый]()
 - [x] Есть рендеринг списков: [Main](src/pages/MainPage/MainPage.tsx), [SearchList](src/features/SearchList/SearchList.tsx)
 - [x] Реализована хотя бы одна форма: [Form](src/components/UserLoginForm/UserLoginForm.tsx)
-- [ ] Есть применение Контекст API: [Name]()
+- [x] Есть применение Контекст API: [ThemeContextMode](src/shared/contextTheme/ThemeContextMode.tsx) [App](src/app/App.tsx)
 - [x] Есть применение предохранителя: [ErrorBoundary](src/app/router/app-router.tsx)
 - [x] Есть хотя бы один кастомный хук: [useAuth](src/shared/hook/useAuth.ts)
-- [x] Хотя бы несколько компонентов используют PropTypes: [Card](src/entities/Card/Card.tsx)
+- [x] Хотя бы несколько компонентов используют PropTypes: [Card](src/entities/Card/Card.tsx) [SerchList](src/features/SearchList/SearchList.tsx)
 - [x] Поиск не должен триггерить много запросов к серверу (debounce): [useDebounce](src/shared/hook/useDebounce.tsx), [Search](src/features/Search/Search.tsx)
 - [x] Есть применение lazy + Suspense: [AppRouter](src/app/router/app-router.tsx)
 

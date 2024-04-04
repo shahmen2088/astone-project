@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { booksApi } from '../../shared/api/booksApi';
 import st from './SearchList.module.css';
@@ -32,4 +33,8 @@ export const SearchList = ({ bookQuery }: Props) => {
       {isLoading ? <div className={st.message}>Идет загрузка</div> : bookList}
     </ul>
   );
+};
+
+SearchList.propTypes = {
+  bookQuery: PropTypes.string,
 };
