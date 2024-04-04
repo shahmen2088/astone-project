@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search } from '../../features/Search/Search';
+import { ThemeContextMode } from '../../shared/contextTheme/ThemeContextMode';
 import { useAppDispatch } from '../../shared/hook/hook';
 import { removeUser } from '../../shared/reducers/slices/userSlice';
 import { checkingUserAuthorization } from '../../utils/userVerificationUtils';
@@ -10,6 +12,7 @@ export const Header = () => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const theme = useContext(ThemeContextMode);
 
   const handleClick = () => {
     dispatch(removeUser());
@@ -17,7 +20,7 @@ export const Header = () => {
   };
 
   return (
-    <header>
+    <header className={theme.theme === 'dark' ? st.dark : st.light}>
       <div className={st.container}>
         <div className={st.logo}>
           <Link className="header__logo" to={'/'}>
@@ -48,7 +51,6 @@ export const Header = () => {
                 </svg>
               </Link>
               <a title="Выход" onClick={handleClick}>
-                <img src="" alt="" />
                 <svg
                   className={st.log_icon}
                   xmlns="http://www.w3.org/2000/svg"
@@ -69,6 +71,10 @@ export const Header = () => {
             </div>
           )}
         </nav>
+
+        <a className={st.change_theme} onClick={theme.toggleThemeMode}>
+          <h3>Сменить тему</h3>
+        </a>
       </div>
     </header>
   );

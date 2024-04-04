@@ -1,31 +1,28 @@
+header {
+  height: 80px;
+  margin-bottom: 40px;
+}
+
 .container {
   display: flex;
   justify-content: space-around;
-  height: 80px;
   align-items: center;
+  height: 100%;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  margin-bottom: 40px;
+
   padding: 0 15px;
   border-bottom: 2px solid #333;
-  background-color: #faee9e;
 }
 
-.container_dark_theme {
-  display: flex;
-  justify-content: space-around;
-  height: 80px;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  padding: 0 15px;
-  border-bottom: 2px solid #333;
-  background-color: #353535;
+.dark {
+  background-color: #393939;
 }
 
+.light {
+  background-color: #ffffff;
+}
 .logo {
   margin-right: 40px;
 }
@@ -48,6 +45,16 @@
 
 .log_icon {
   cursor: pointer;
+}
+
+.change_theme {
+  text-decoration: none;
+  color: #a2110b;
+  cursor: pointer;
+}
+
+.change_theme:hover {
+  scale: 0.9;
 }
 
 .fav_icon,
