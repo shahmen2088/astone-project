@@ -27,12 +27,12 @@
 #### React
 
 - [x] Пишем функциональные компоненты c хуками в приоритете над классовыми
-- [x] Есть разделение на умные и глупые компоненты: [CardList](src/entities/CardList/CardList.tsx), [SignUpPage](src/pages/SignUpPage/SignUpPage.tsx), [LoginPage](src/pages/LoginPage/LoginPage.tsx)
+- [x] Есть разделение на умные и глупые компоненты: [CardList](src/entities/CardList/CardList.tsx), умные: [SignUpPage](src/pages/SignUpPage/SignUpPage.tsx), [LoginPage](src/pages/LoginPage/LoginPage.tsx)
 - [x] Есть рендеринг списков: [Main](src/pages/MainPage/MainPage.tsx), [SearchList](src/features/SearchList/SearchList.tsx)
 - [x] Реализована хотя бы одна форма: [UserLoginForm](src/components/UserLoginForm/UserLoginForm.tsx)
 - [x] Есть применение Контекст API: [ThemeContextMode](src/shared/contextTheme/ThemeContextMode.tsx) [App](src/app/App.tsx)
 - [x] Есть применение предохранителя: [ErrorBoundary](src/app/router/AppRouter.tsx)
-- [x] Есть хотя бы один кастомный хук: [useAuth](src/shared/hook/useDebounce.tsx)
+- [x] Есть хотя бы один кастомный хук: [useDebaunce](src/shared/hook/useDebounce.tsx)
 - [x] Хотя бы несколько компонентов используют PropTypes: [Card](src/entities/Card/Card.tsx) [SerchList](src/features/SearchList/SearchList.tsx)
 - [x] Поиск не должен триггерить много запросов к серверу (debounce): [useDebounce](src/shared/hook/useDebounce.tsx), [Search](src/features/Search/Search.tsx)
 - [x] Есть применение lazy + Suspense: [AppRouter](src/app/router/AppRouter.tsx)
@@ -68,5 +68,5 @@
 ### Что можно доработать
 
 - Реализовать аутентификацию пользователей с помощью Firebase Authentication.
-- Реализвать сохранение избранных карточек и историю просмотра с помощью Realtime Database
+- Реализовать сохранение избранных карточек и историю просмотра с помощью Realtime Database
 - Использовать React Hook Form для работы с формой авторизации.
