@@ -1,9 +1,9 @@
 import { Outlet } from 'react-router';
 import { Navigate } from 'react-router-dom';
-import { checkUserRegisterLS } from '../../utils/localStorageUtils';
+import { checkingUserAuthorization } from '../../utils/userVerificationUtils';
 
 export default function PrivateRoute() {
-  const isAuthenticated = checkUserRegisterLS();
+  const isAuthenticated = checkingUserAuthorization();
 
   return isAuthenticated ? <Outlet /> : <Navigate to="/login" replace />;
 }

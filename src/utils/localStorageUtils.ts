@@ -12,11 +12,6 @@ export const addNewUserLS = (email: string, password: string) => {
       }),
     );
   }
-  // const user = localStorage.getItem(email);
-  // if (user) {
-  //   const parsedUser = JSON.parse(user);
-  //   localStorage.setItem('online', parsedUser.email);
-  // }
 };
 
 export const updateUserInfoLS = (email: string) => {
@@ -25,10 +20,6 @@ export const updateUserInfoLS = (email: string) => {
     const parsedUser = JSON.parse(user);
     localStorage.setItem('online', parsedUser.email);
   }
-};
-
-export const checkUserRegisterLS = () => {
-  return localStorage.getItem('online');
 };
 
 export const removeCurrentUserLS = () => {

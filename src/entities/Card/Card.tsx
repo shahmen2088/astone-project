@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { Button } from '../../shared/UI/Button/Button';
 import { Book } from '../../shared/api/booksApi';
 
 import {
@@ -16,7 +17,8 @@ import st from './Card.module.css';
 export const Card = ({ id, authors, title, image }: Book) => {
   const cards = useFavoritesSelector();
   const email = useEmailSelector();
-  const isFavorites = cards.some((item) => item.id === id);
+
+  const isFavorites = cards && cards.some((item) => item.id === id);
 
   const dispatch = useAppDispatch();
 
@@ -29,24 +31,20 @@ export const Card = ({ id, authors, title, image }: Book) => {
   };
 
   const activeButton = isFavorites ? (
-    <button onClick={removeFromCard}>Удалить из избранного</button>
+    <Button onTouch={removeFromCard} value={'Удалить из избранного'} />
   ) : (
-    <button onClick={addToCard}>Добавить в избранное</button>
+    <Button onTouch={addToCard} value={'Добавить в избранное'} />
   );
 
   return (
     <li className={st.card}>
-      <Link to={`/${id}`}>
-        <img
-          className={st.card__img}
-          src={image || ''}
-          alt={`Cover for ${title}`}
-        />
+      <Link className={st.card__img} to={`/${id}`}>
+        <img src={image || ''} alt={`Cover for ${title}`} />
       </Link>
-      <Link to={`/${id}`}>
-        <h3 className={st.card__title}>{title}</h3>
+      {authors && <p className={st.card__author}>{authors}</p>}
+      <Link className={st.card__title} to={`/${id}`}>
+        <h3>{title}</h3>
       </Link>
-      <p className={st.card__author}>{authors}</p>
       {email && activeButton}
     </li>
   );

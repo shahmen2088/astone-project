@@ -1,26 +1,32 @@
 import { useParams } from 'react-router-dom';
+import { Card } from '../../entities/Card/Card';
 import { Loader } from '../../shared/UI/Loader/Loader';
 import { booksApi } from '../../shared/api/booksApi';
+import st from './BookPage.module.css';
 
 export default function BookPage() {
   const { bookId } = useParams();
   const { data: book, isLoading } = booksApi.useGetBookInfoQuery(bookId);
   return (
-    <main className="content container">
+    <main className={st.container}>
       {book && (
-        <article className="article">
-          <div className="article__img">
-            <img src={book.image} alt={book.title} />
-            <button>Add to cart</button>
+        <article className={st.article}>
+          <div className={st.article__img}>
+            <Card
+              id={book.id}
+              title={book.title}
+              authors={book.authors}
+              image={book.image}
+            />
           </div>
 
-          <div className="article__text">
-            <p className="article__authors">{book.authors}</p>
-            <h2 className="article__title">{book.title}</h2>
-            <p className="article__descr">{book.description}</p>
-            <p className="article__publisher">Издательство: {book.publisher}</p>
-            <p className="article__date">
-              Дата публикации: {book.publishedDate}
+          <div className={st.article__text}>
+            <p className={st.article__descr}>{book.description}</p>
+            <p className={st.article__publisher}>
+              <span>Издательство:</span> {book.publisher}
+            </p>
+            <p className={st.article__date}>
+              <span>Дата публикации:</span> {book.publishedDate}
             </p>
           </div>
         </article>

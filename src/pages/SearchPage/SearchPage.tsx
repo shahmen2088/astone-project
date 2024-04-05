@@ -8,28 +8,31 @@ import sl from '../MainPage/MainPage.module.css';
 export default function SearchPage() {
   const [searchParams] = useSearchParams();
   const bookQuery = searchParams.get('q') ?? '';
-  const {
-    data: books,
-    isError,
-    isLoading,
-  } = useGetBooksQuery({ bookQuery: bookQuery, limit: 20 });
+  const { data: books, isLoading } = useGetBooksQuery({
+    bookQuery: bookQuery,
+    limit: 20,
+  });
+
+  let bookList;
+  if (books) {
+    bookList = (
+      <CardList>
+        {books.map((book) => (
+          <Card
+            id={book.id}
+            authors={book.authors}
+            title={book.title}
+            image={book.image}
+            key={book.id}
+          />
+        ))}
+      </CardList>
+    );
+  } else {
+    bookList = <div className="text-center">No results</div>;
+  }
 
   return (
-    <main className={sl.container}>
-      {books && !isLoading && !isError && (
-        <CardList>
-          {books.map((book) => (
-            <Card
-              id={book.id}
-              authors={book.authors}
-              title={book.title}
-              image={book.image}
-              key={book.id}
-            />
-          ))}
-        </CardList>
-      )}
-      {isLoading && <Loader />}
-    </main>
+    <main className={sl.container}>{isLoading ? <Loader /> : bookList}</main>
   );
 }

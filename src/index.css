@@ -3,6 +3,11 @@ img {
   max-width: 100%;
 }
 
+html {
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+}
+
 * {
   padding: 0;
   margin: 0;

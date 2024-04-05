@@ -1,8 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import { Card } from '../../entities/Card/Card';
 import { CardList } from '../../entities/CardList/CardList';
 import { Loader } from '../../shared/UI/Loader/Loader';
 import { booksApi } from '../../shared/api/booksApi';
-
 import sl from './MainPage.module.css';
 
 export const MainPage = () => {
@@ -10,10 +10,11 @@ export const MainPage = () => {
     data: books,
     isLoading,
     isError,
-  } = booksApi.useGetBooksQuery({ bookQuery: 'Python', limit: 10 });
+  } = booksApi.useGetBooksQuery({ bookQuery: '', limit: 10 });
+  const navigate = useNavigate();
 
   if (isError) {
-    return <div>Dirt</div>;
+    navigate('/error');
   }
 
   return (
