@@ -3,11 +3,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { Route, Routes } from 'react-router-dom';
 import { Loader } from '../../shared/UI/Loader/Loader';
 
-const MainPage = lazy(() =>
-  import('../../pages/MainPage/MainPage').then((module) => ({
-    default: module.MainPage,
-  })),
-);
+const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
 const ErrorPage = lazy(() => import('../../pages/ErrorPage/ErrorPage'));
 const BookPage = lazy(() => import('../../pages/BookPage/BookPage'));
 const SearchPage = lazy(() => import('../../pages/SearchPage/SearchPage'));

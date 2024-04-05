@@ -5,7 +5,7 @@ import {
   updateUserInfoLS,
   intitialStateLS,
   removeCurrentUserLS,
-  setParamsUser,
+  setParamsUserLS,
 } from '../../../utils/localStorageUtils';
 import {
   addItemToCard,
@@ -57,26 +57,26 @@ startListeningApp({
 startListeningApp({
   actionCreator: addItemToCard,
   effect: (_, api) => {
-    setParamsUser(api.getState().user.email, api.getState().user);
+    setParamsUserLS(api.getState().user.email, api.getState().user);
   },
 });
 
 startListeningApp({
   actionCreator: deleteFromCard,
   effect: (_, api) => {
-    setParamsUser(api.getState().user.email, api.getState().user);
+    setParamsUserLS(api.getState().user.email, api.getState().user);
   },
 });
 startListeningApp({
   actionCreator: addItemToHistory,
   effect: (_, api) => {
-    setParamsUser(api.getState().user.email, api.getState().user);
+    setParamsUserLS(api.getState().user.email, api.getState().user);
   },
 });
 
 startListeningApp({
   actionCreator: deleteItemToHistory,
   effect: (_, api) => {
-    setParamsUser(api.getState().user.email, api.getState().user);
+    setParamsUserLS(api.getState().user.email, api.getState().user);
   },
 });

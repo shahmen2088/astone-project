@@ -20,7 +20,7 @@ export default function UserLoginForm() {
     if (currentUser.email) {
       dispatch(loginUser({ ...currentUser }));
 
-      navigate('/', { replace: true });
+      navigate('/');
     } else {
       setErrorMessage('Логин или пароль введены неверно');
       navigate('/login');

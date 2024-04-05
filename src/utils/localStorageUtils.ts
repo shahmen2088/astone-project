@@ -48,6 +48,6 @@ export const getParseItemsLS = (email: string) => {
   }
 };
 
-export const setParamsUser = (email: string, data: UserType) => {
+export const setParamsUserLS = (email: string, data: UserType) => {
   localStorage.setItem(email, JSON.stringify(data));
 };
