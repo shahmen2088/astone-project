@@ -29,7 +29,7 @@ export default function SearchPage() {
       </CardList>
     );
   } else {
-    bookList = <div className="text-center">No results</div>;
+    bookList = <div>No results</div>;
   }
 
   return (

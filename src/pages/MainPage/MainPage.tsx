@@ -5,7 +5,7 @@ import { Loader } from '../../shared/UI/Loader/Loader';
 import { booksApi } from '../../shared/api/booksApi';
 import sl from './MainPage.module.css';
 
-export const MainPage = () => {
+export default function MainPage() {
   const {
     data: books,
     isLoading,
@@ -35,4 +35,4 @@ export const MainPage = () => {
       {isLoading && <Loader />}
     </main>
   );
-};
+}
