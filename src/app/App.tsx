@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Header } from '../components/Header/Header';
 import { ThemeContextMode } from '../shared/contextTheme/ThemeContextMode';
-import { AppRouter } from './router/app-router';
+import { AppRouter } from './router/AppRouter';
 
 function App() {
   const [theme, setTheme] = useState('dark');
