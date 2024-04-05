@@ -8,9 +8,9 @@ type Props = {
 };
 
 export const SearchList = ({ bookQuery }: Props) => {
-  const { data: books, isLoading } = booksApi.useGetBooksQuery({
+  const { data: books } = booksApi.useGetBooksQuery({
     bookQuery: bookQuery,
-    limit: 10,
+    limit: 5,
   });
 
   let bookList;
@@ -22,17 +22,9 @@ export const SearchList = ({ bookQuery }: Props) => {
         </Link>
       </li>
     ));
-  } else {
-    bookList = (
-      <p className={st.message}>По вашему запросу ничего не найдено!</p>
-    );
   }
 
-  return (
-    <ul className={st.search__list}>
-      {isLoading ? <div className={st.message}>Идет загрузка</div> : bookList}
-    </ul>
-  );
+  return <ul className={st.search__list}>{bookList}</ul>;
 };
 
 SearchList.propTypes = {
